@@ -6,10 +6,11 @@
       //console.log(d);
       let r = document.referrer;
       console.log(r);
-      if(r.indexOf("51n1.uk") != -1){
-        console.log("This page is from 51n1.uk.");
+      if(r.indexOf("51n1.uk") != -1 || r.indexOf("127.0.0.1") != -1){
+        console.log("This page is from 51n1.uk or 127.0.0.1.");
       } else {
         console.log("This page is not from 51n1.uk.");
+        // Jump to 51n1.uk
       }
     </script>
 
