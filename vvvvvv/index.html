@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <meta name="robots" content="noindex,nofollow"><!-- ADDED PARTS -->
+
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | My_VVVVVV</title>
@@ -9,16 +11,21 @@
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
-    <div id="unity-container">
-      <canvas id="unity-canvas" width=960 height=540 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+    <div id="webgl-page" style="display:none;"><!-- ADDED PARTS -->
+
+      <div id="unity-container">
+        <canvas id="unity-canvas" width=960 height=540 tabindex="-1"></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
         </div>
+        <div id="unity-warning"> </div>
       </div>
-      <div id="unity-warning"> </div>
-    </div>
+
+    </div><!-- ADDED PARTS -->
+
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
@@ -99,5 +106,18 @@
       };
       document.body.appendChild(script);
     </script>
+
+    <!-- ADDED PARTS -->
+    <script>
+      let r = document.referrer;
+      console.log(r);
+      if(r.indexOf("51n1.uk") != -1 || r.indexOf("127.0.0.1") != -1){
+        console.log("This page is from 51n1.uk or 127.0.0.1.");
+        document.getElementById("webgl-page").style.display = "block";
+      } else {
+        console.log("This page is not from 51n1.uk.");
+      }
+    </script>
+    <!-- ADDED PARTS -->
   </body>
 </html>
